@@ -1,6 +1,6 @@
 # NewsApiExpress
 
-NewsApiExpress is a simple express/node app consuming the 3 endpoints.
+NewsApiExpress is a simple express/node app consuming the 3 endpoints of the news api.
 
 Packages used;   
 - axios
