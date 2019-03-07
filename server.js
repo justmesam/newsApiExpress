@@ -11,7 +11,7 @@ const router = express.Router()
 
 routes(router)
 
-app.use(cors())
+app.options("*", cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', router)
