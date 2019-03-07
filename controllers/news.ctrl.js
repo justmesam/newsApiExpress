@@ -15,7 +15,7 @@ module.exports = {
         res.status(200).send(apiResponse)
       })
       .catch((errors) => {
-        res.status(404).send(errors)
+        res.status(404).send({ errors })
       })
   }
 }
