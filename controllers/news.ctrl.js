@@ -4,9 +4,15 @@ const axios = require('axios')
 module.exports = {
   getNews: (req, res) => {
     const { endpoint } = req.params
-    const queryKey = Object.keys(req.query).join()
-    const parameters = queryKey && `${queryKey}=${req.query[queryKey]}`
-    const newsUrl = utils.apiUrl(endpoint, parameters)
+    let queryKey = Object.keys(req.query);
+    let queryParams;
+    if (queryKey.length > 0) {
+      queryKey = queryKey.join()
+      queryParams = queryKey && `${queryKey}=${req.query[queryKey]}`
+    }
+    const newsUrl = typeof queryParams === 'string'
+      ? utils.apiUrl(endpoint, queryParams)
+      : utils.apiUrl(endpoint)
     axios.get(newsUrl)
       .then((response) => {
         const apiResponse = {
